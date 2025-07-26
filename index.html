@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanGo</title>
+
+    <!--vendor css ================================================== -->
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!--Bootstrap ================================================== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <!-- Style Sheet ================================================== -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Google Fonts ================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- script ================================================== -->
+    <script src="js/modernizr.js"></script>
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#header-nav" tabindex="0">
+
+
+    <nav class="navbar fixed-top navbar-expand-lg container-fluid p-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="images/main-logo-light.png" alt="CleanGo Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <iconify-icon icon="system-uicons:menu-hamburger" class="hamburger-menu"></iconify-icon>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul
+                        class="navbar-nav align-items-center justify-content-end justify-content-xxl-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase  active mx-2 px-3 mb-2 mb-lg-0"
+                                aria-current="page" href="index.html">home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase  mx-2 px-3 mb-2 mb-lg-0"
+                                href="#price">booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase  mx-2 px-3 mb-2 mb-lg-0" href="#about">About
+                                us</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase  mx-2 px-3 mb-2 mb-lg-0"
+                                href="#services">Services</a>
+                        </li> -->
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase  mx-2 px-3 mb-2 mb-lg-0"
+                                href="#project">gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase  mx-2 px-3 mb-2 mb-lg-0"
+                                href="#info">Contact</a>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80') center/cover; min-height: 100vh; display: flex; align-items: center;">
+        <div class="container padding-large">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <p class="header-top text-white mb-4">best doorstep car wash in lahore</p>
+                    <h2 class="display-1 text-white mb-5">CleanGo</h2>
+                    <a href="#price" class="btn btn-primary ms-5 mt-3 ">BOOK NOW <iconify-icon
+                            icon="tabler:arrow-right" class="arrow-icon"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float" onclick="openWhatsAppChat()">
+        <iconify-icon icon="mdi:whatsapp" class="whatsapp-icon"></iconify-icon>
+    </div>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+            z-index: 1000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+        }
+
+        .whatsapp-icon {
+            font-size: 32px;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+            
+            .whatsapp-icon {
+                font-size: 26px;
+            }
+        }
+    </style>
+
+    <section id="about">
+        <div style="overflow: hidden;">
+            <div class="container-fluid border-bottom" data-aos="zoom-out">
+                <div class="container">
+                    <div class="row align-items-center ">
+                        <div class="col-md-6 padding-medium pe-5 border-end">
+                            <p class="header-top mb-3">Why choose CleanGo</p>
+                            <h2 class="display-4 ">doorstep car wash service that comes to you</h2>
+                        </div>
+                        <div class="col-md-6 padding-medium-2 ps-md-5">
+                            <p class="ms-md-5 ">Experience the convenience of professional car washing at your doorstep.
+                                CleanGo brings premium car cleaning services directly to your home or office in Lahore.
+                                Our skilled team uses high-quality products to ensure your car gets the best exterior
+                                wash and interior vacuum cleaning. Save time and effort while we make your car sparkle.
+                            </p>
+                            <a href="#price" class="btn btn-primary ms-5 mt-3 ">BOOK NOW <iconify-icon
+                                    icon="tabler:arrow-right" class="arrow-icon"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="my-5">
+        <div style="overflow: hidden;">
+            <div class="container" data-aos="zoom-out">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="py-3 py-md-5 px-3">
+                            <h4 class="mb-3"> <span class="heading-color">01.</span> Book Online</h4>
+                            <p>Schedule your car wash service through our easy online booking system. Choose your
+                                preferred time slot.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="py-3 py-md-5 px-3">
+                            <h4 class="mb-3"> <span class="heading-color">02.</span> We Come to You</h4>
+                            <p>Our professional team arrives at your location with all necessary equipment and quality
+                                cleaning products.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="py-3 py-md-5 px-3">
+                            <h4 class="mb-3"> <span class="heading-color">03.</span> Quality Service</h4>
+                            <p>We provide thorough exterior washing and interior vacuum cleaning using premium products.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="py-3 py-md-5 px-3">
+                            <h4 class="mb-3"> <span class="heading-color">04.</span> Sparkling Clean</h4>
+                            <p>Your car is left spotless and fresh, ready for you to enjoy without any hassle on your
+                                part.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="project" class="py-5" style="background-image:url(images/project-img.jpg);">
+        <div style="overflow: hidden;">
+            <div data-aos="zoom-out">
+                <div class="container position-relative d-sm-flex py-5 mt-5 mb-2">
+                    <div>
+                        <p class="header-top mb-3">Our Work</p>
+                        <h2 class=" text-white display-4 ">Recent Car Washes</h2>
+                    </div>
+
+                    <div class="swiper-arrow position-absolute end-0 mt-sm-5 ms-3">
+                        <iconify-icon icon="teenyicons:arrow-left-solid" class="icon-arrow-left me-3"></iconify-icon>
+                        <iconify-icon icon="teenyicons:arrow-right-solid" class="icon-arrow-right"></iconify-icon>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="swiper project-swiper mb-4">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="images/project1.jpg" title="CleanGo Car Wash" class="image-link">
+                                        <img class="portfolio-img img-fluid" src="images/project1.jpg" alt="">
+                                        <div
+                                            class="description position-absolute top-50 start-50 translate-middle text-center p-3">
+                                            <p class="text-white">Sedan Car</p>
+                                            <h3 class="text-white">Complete Exterior & Interior</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="images/project2.jpg" title="CleanGo Car Wash" class="image-link">
+                                        <img class="portfolio-img img-fluid" src="images/project2.jpg" alt="">
+                                        <div
+                                            class="description position-absolute top-50 start-50 translate-middle text-center p-3">
+                                            <p class="text-white">SUV</p>
+                                            <h3 class="text-white">Premium Wash & Vacuum</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="images/project3.jpg" title="CleanGo Car Wash" class="image-link">
+                                        <img class="portfolio-img img-fluid" src="images/project3.jpg" alt="">
+                                        <div
+                                            class="description position-absolute top-50 start-50 translate-middle text-center p-3">
+                                            <p class="text-white">Hatchback</p>
+                                            <h3 class="text-white">Doorstep Car Cleaning</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="images/project4.jpg" title="CleanGo Car Wash" class="image-link">
+                                        <img class="portfolio-img img-fluid" src="images/project4.jpg" alt="">
+                                        <div
+                                            class="description position-absolute top-50 start-50 translate-middle text-center p-3">
+                                            <p class="text-white">Luxury Car</p>
+                                            <h3 class="text-white">Premium Service</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="images/project1.jpg" title="CleanGo Car Wash" class="image-link">
+                                        <img class="portfolio-img img-fluid" src="images/project1.jpg" alt="">
+                                        <div
+                                            class="description position-absolute top-50 start-50 translate-middle text-center p-3">
+                                            <p class="text-white">Sedan Car</p>
+                                            <h3 class="text-white">Complete Exterior & Interior</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="images/project2.jpg" title="CleanGo Car Wash" class="image-link">
+                                        <img class="portfolio-img img-fluid" src="images/project2.jpg" alt="">
+                                        <div
+                                            class="description position-absolute top-50 start-50 translate-middle text-center p-3">
+                                            <p class="text-white">SUV</p>
+                                            <h3 class="text-white">Premium Wash & Vacuum</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="images/project3.jpg" title="CleanGo Car Wash" class="image-link">
+                                        <img class="portfolio-img img-fluid" src="images/project3.jpg" alt="">
+                                        <div
+                                            class="description position-absolute top-50 start-50 translate-middle text-center p-3">
+                                            <p class="text-white">Hatchback</p>
+                                            <h3 class="text-white">Doorstep Car Cleaning</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <a href="images/project4.jpg" title="CleanGo Car Wash" class="image-link">
+                                        <img class="portfolio-img img-fluid" src="images/project4.jpg" alt="">
+                                        <div
+                                            class="description position-absolute top-50 start-50 translate-middle text-center p-3">
+                                            <p class="text-white">Luxury Car</p>
+                                            <h3 class="text-white">Premium Service</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="text-center pb-5 mb-5">
+                    <a href="#price" class="btn btn-primary mt-5 ">Book Now <iconify-icon
+                            icon="tabler:arrow-right" class="arrow-icon"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="price" class="our-packages my-5">
+        <div style="overflow: hidden;">
+            <div class="container py-5" data-aos="zoom-out">
+
+                <p class="header-top">Our Packages</p>
+                <h2 class="display-4 mb-5 ">CleanGo Service Packages</h2>
+
+                <!-- <ul class="nav nav-tabs my-3" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link me-4 px-4 py-1 mb-2 active" id="regular-tab" data-bs-toggle="tab"
+                            data-bs-target="#regular-tab-pane" type="button" role="tab" aria-controls="regular-tab-pane"
+                            aria-selected="true">Sedan/Hatchback</button>
+                    </li>
+                </ul> -->
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="regular-tab-pane" role="tabpanel"
+                        aria-labelledby="regular-tab" tabindex="0">
+                        <div class="row py-4">
+                            <div class="col-lg-4 pb-4">
+                                <div class="py-5 plan-post text-center">
+
+                                    <p class="header-top">Basic package</p>
+                                    <h2 class="display-5 mb-5">Rs. 1000</h2>
+                                    <div class="price-option">
+                                        <p><span class="price-tick">✓</span> Exterior Basic Wash</p>
+                                        <p><span class="price-tick">✓</span> Wheel Cleaning</p>
+                                        <p><span class="price-tick">✓</span> Windows Clean</p>
+                                        <p><span class="price-tick">✓</span> Air Freshener</p>
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary mt-3 px-4 py-3 mx-2" data-bs-toggle="modal" data-bs-target="#bookingModal" onclick="fillPackageDetails('Basic Package', 'Rs. 1000', 'Exterior Basic Wash, Wheel Cleaning, Windows Clean, Air Freshener')">Book Now
+                                        <iconify-icon icon="tabler:arrow-right" class="arrow-icon"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 pb-4">
+                                <div class="py-5 plan-post text-center">
+
+                                    <p class="header-top">Standard Package</p>
+                                    <h2 class="display-5 mb-5">Rs. 1500</h2>
+                                    <div class="price-option">
+                                        <p><span class="price-tick">✓</span> Everything in Basic Package</p>
+                                        <p><span class="price-tick">✓</span> Interior Vaccum</p>
+                                        <p><span class="price-tick">✓</span> Mats Wash</p>
+                                        <p><span class="price-tick">✓</span> Window Cleaning</p>
+                                        <p><span class="price-tick">✓</span>Trunk Vacuuming</p>
+
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary mt-3 px-4 py-3 mx-2" data-bs-toggle="modal" data-bs-target="#bookingModal" onclick="fillPackageDetails('Standard Package', 'Rs. 1500', 'Everything in Basic Package, Interior Vacuum, Mats Wash, Window Cleaning, Trunk Vacuuming')">Book Now
+                                        <iconify-icon icon="tabler:arrow-right" class="arrow-icon"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 pb-4">
+                                <div class="py-5 plan-post text-center">
+
+                                    <p class="header-top">Premium Package</p>
+                                    <h2 class="display-5 mb-5">Rs. 1800</h2>
+                                    <div class="price-option">
+                                        <p><span class="price-tick">✓</span> Everything in Standard Package</p>
+                                        <p><span class="price-tick">✓</span> Exterior Deep Wash</p>
+                                        <p><span class="price-tick">✓</span> Interior Seats Clean(cloth or leather)</p>
+                                        <p><span class="price-tick">✓</span> Engine Dry Clean</p>
+                                        <p><span class="price-tick">✓</span> Trunk Deep Vacuuming</p>
+                                        <p><span class="price-tick">✓</span> Dashboard Shiner</p>
+
+                                        <p><span class="price-tick">✓</span> Tyre Shiner</p>
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary mt-3 px-4 py-3 mx-2" data-bs-toggle="modal" data-bs-target="#bookingModal" onclick="fillPackageDetails('Premium Package', 'Rs. 1800', 'Everything in Standard Package, Exterior Deep Wash, Interior Seats Clean, Engine Dry Clean, Trunk Deep Vacuuming, Dashboard Shiner, Tyre Shiner')">Book Now
+                                        <iconify-icon icon="tabler:arrow-right" class="arrow-icon"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- New Lahore Areas Section -->
+    <section id="lahore-areas" class="py-5" style="background-color: #f8f9fa;">
+        <div style="overflow: hidden;">
+            <div class="container" data-aos="zoom-out">
+                <div class="text-center mb-5">
+                    <p class="header-top">Service Coverage</p>
+                    <h2 class="display-4 mb-4">Lahore Areas We Serve</h2>
+                    <p class="lead">CleanGo provides doorstep car wash services across all major areas of Lahore. Book
+                        now and get premium car cleaning at your location!</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="area-card h-100 p-4 bg-white rounded shadow-sm text-center">
+                            <iconify-icon icon="mdi:map-marker" class="text-primary fs-1 mb-3"></iconify-icon>
+                            <h5 class="mb-3">Central Lahore</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">• Mall Road</li>
+                                <li class="mb-2">• Liberty Market</li>
+                                <li class="mb-2">• GPO</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="area-card h-100 p-4 bg-white rounded shadow-sm text-center">
+                            <iconify-icon icon="mdi:map-marker" class="text-primary fs-1 mb-3"></iconify-icon>
+                            <h5 class="mb-3">Gulberg & Garden</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">• Gulberg</li>
+                                <li class="mb-2">• MM Alam Road</li>
+                                <li class="mb-2">• Garden Town</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="area-card h-100 p-4 bg-white rounded shadow-sm text-center">
+                            <iconify-icon icon="mdi:map-marker" class="text-primary fs-1 mb-3"></iconify-icon>
+                            <h5 class="mb-3">Defense Areas</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">• DHA Phase 1-8</li>
+                                <li class="mb-2">• Cavalry Ground</li>
+                                <li class="mb-2">• Askari Housing</li>
+                                <li class="mb-2">• Sarwar Road</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="area-card h-100 p-4 bg-white rounded shadow-sm text-center">
+                            <iconify-icon icon="mdi:map-marker" class="text-primary fs-1 mb-3"></iconify-icon>
+                            <h5 class="mb-3">Model Town Areas</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">• Model Town</li>
+                                <li class="mb-2">• Faisal Town</li>
+                                <li class="mb-2">• Township</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="area-card h-100 p-4 bg-white rounded shadow-sm text-center">
+                            <iconify-icon icon="mdi:map-marker" class="text-primary fs-1 mb-3"></iconify-icon>
+                            <h5 class="mb-3">Johar Town Areas</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">• Johar Town Phase 1-2</li>
+                                <li class="mb-2">• PIA Housing</li>
+                                <li class="mb-2">• Wapda Town</li>
+                                <li class="mb-2">• EME Society</li>
+                                <li class="mb-2">• UET Society</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="area-card h-100 p-4 bg-white rounded shadow-sm text-center">
+                            <iconify-icon icon="mdi:map-marker" class="text-primary fs-1 mb-3"></iconify-icon>
+                            <h5 class="mb-3">Valencia & Suburbs</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">• Valencia Town</li>
+                                <li class="mb-2">• Lake City</li>
+                                <li class="mb-2">• Bahria Town</li>
+                                <li class="mb-2">• Sukh Chayn</li>
+                                <li class="mb-2">• Green Town</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="area-card h-100 p-4 bg-white rounded shadow-sm text-center">
+                            <iconify-icon icon="mdi:map-marker" class="text-primary fs-1 mb-3"></iconify-icon>
+                            <h5 class="mb-3">Iqbal Town Areas</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">• Iqbal Town</li>
+                                <li class="mb-2">• Samanabad</li>
+                                <li class="mb-2">• Wahdat Colony</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="area-card h-100 p-4 bg-white rounded shadow-sm text-center">
+                            <iconify-icon icon="mdi:map-marker" class="text-primary fs-1 mb-3"></iconify-icon>
+                            <h5 class="mb-3">Additional Areas</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">Call for service availability</li>
+                                <li class="mb-2">0315-0030730</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="alert alert-info">
+                                <iconify-icon icon="mdi:information" class="me-2"></iconify-icon>
+                                <strong>Don't see your area listed?</strong> Don't worry! We serve additional areas in
+                                Lahore. Call us at <strong>0315-0030730</strong> to confirm service availability in your
+                                location.
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#price" class="btn btn-primary btn-lg mt-3">
+                        Book Service in Your Area
+                        <iconify-icon icon="tabler:arrow-right" class="arrow-icon ms-2"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="video">
+        <div style="overflow: hidden;">
+            <div class="video-content position-relative open-up" data-aos="zoom-out">
+                <div class="video-bg">
+                    <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="CleanGo service video" class="video-image img-fluid" style="width: 100%; height: 400px; object-fit: cover; filter: brightness(0.7);">
+                </div>
+                <!-- <div class="video-player position-absolute">
+                    <a class='youtube' href="https://www.youtube.com/embed/RLHSvmh4rHw">
+                        <iconify-icon icon="ion:play-sharp" class="video-icon p-5"></iconify-icon>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section id="info">
+        <div style="overflow: hidden;">
+            <div class="container" data-aos="zoom-out">
+                <div class="row align-items-center ">
+                    <div class="col-md-4 text-center padding-medium border-end">
+                        <p class="header-top mb-4">Contact CleanGo</p>
+                        <p class="mb-2">0315-0030730</p>
+                        <!-- <p class="mb-2">+92 321 9876543</p> -->
+                    </div>
+                    <div class="col-md-4 text-center padding-medium border-end">
+                        <p class="header-top mb-4">Service Hours</p>
+                        <p class="mb-2">Saturday: 9 AM - 9 PM</p>
+                        <p class="mb-2">Sunday: 9 AM - 9 PM</p>
+                    </div>
+                    <div class="col-md-4 text-center padding-medium">
+                        <p class="header-top mb-4">Service Area</p>
+                        <p class="mb-2">All Areas of Lahore</p>
+                        <p class="mb-2">Doorstep Service Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header bg-dark border-secondary py-2">
+                    <h6 class="modal-title text-white" id="bookingModalLabel">Book Your Service</h6>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-3 bg-dark">
+                    <form id="bookingForm" action="https://formspree.io/f/mjkowpbr" method="POST">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-2">
+                                    <label for="customerName" class="form-label small text-white">Full Name *</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-white border-secondary" id="customerName" name="name" required style="background-color: #212529 !important;">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-2">
+                                    <label for="customerPhone" class="form-label small text-white">Phone *</label>
+                                    <input type="tel" class="form-control form-control-sm bg-dark text-white border-secondary" id="customerPhone" name="phone" required style="background-color: #212529 !important;">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-2">
+                                    <label for="customerEmail" class="form-label small text-white">Email *</label>
+                                    <input type="email" class="form-control form-control-sm bg-dark text-white border-secondary" id="customerEmail" name="email" required style="background-color: #212529 !important;">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-2">
+                                    <label for="serviceDay" class="form-label small text-white">Day *</label>
+                                    <select class="form-control form-control-sm bg-dark text-white border-secondary" id="serviceDay" name="day" required style="background-color: #212529 !important;">
+                                        <option value="">Select Day</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="serviceTime" class="form-label small text-white">Time Slot *</label>
+                            <select class="form-control form-control-sm bg-dark text-white border-secondary" id="serviceTime" name="time" required style="background-color: #212529 !important;">
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                                <option value="7:00 PM">7:00 PM</option>
+                                <option value="8:00 PM">8:00 PM</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="specialRequests" class="form-label small text-white">Comments</label>
+                            <textarea class="form-control form-control-sm bg-dark text-white border-secondary" id="specialRequests" name="comments" rows="2" placeholder="Address, special requests..." style="background-color: #212529 !important;"></textarea>
+                        </div>
+
+                        <!-- Hidden fields for package details -->
+                        <input type="hidden" id="selectedPackage" name="package">
+                        <input type="hidden" id="packagePrice" name="price">
+                        <input type="hidden" id="packageDetails" name="package_details">
+
+                        <div class="alert alert-dark border-secondary py-1 small">
+                            <iconify-icon icon="mdi:information" class="me-1 text-primary"></iconify-icon>
+                            We'll contact you within 2 hours to confirm.
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer bg-dark border-secondary py-2">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="bookingForm" class="btn btn-primary btn-sm">
+                        <span class="submit-text">Book Now</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="footer">
+        <div class="container footer-containerG mt-5 mt-md-0 pt-3">
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 my-5 py-5 ">
+
+                <div class=" col-md-3 my-5 mt-md-0 ">
+                    <img src="images/logo-dark.png" alt="CleanGo Logo" class="">
+                    <p class="my-4">CleanGo brings professional car washing services to your doorstep in Lahore. Quality
+                        products, skilled team, and convenient service for your car's exterior and interior cleaning
+                        needs.</p>
+
+
+                </div>
+
+                <div class="col-md-4 offset-md-1">
+                    <h5 class="fs-5 mt-3 mt-md-0 mb-3">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">• Exterior Wash</li>
+                        <li class="mb-3">• Interior Vacuum</li>
+                        <li class="mb-3">• Wheel Cleaning</li>
+                        <li class="mb-3">• Dashboard Clean</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 ">
+                    <h5 class="fs-5 mt-3 mt-md-0 mb-3">Contact Us</h5>
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item footer-list mb-3"><a href="#" class="nav-link text-uppercase p-0 ">Book
+                                Service</a>
+                        </li>
+                        <li class="nav-item footer-list mb-3"><a href="#"
+                                class="nav-link text-uppercase p-0 ">Contact</a>
+                        </li>
+                        <li class="nav-item footer-list mb-3"><a href="#lahore-areas"
+                                class="nav-link text-uppercase p-0 ">Lahore
+                                Areas</a>
+                        </li>
+                        <li class="nav-item footer-list mb-3"><a href="#"
+                                class="nav-link text-uppercase p-0 ">Support</a></li>
+                    </ul>
+                </div>
+
+
+
+
+            </footer>
+        </div>
+
+
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center border-top"></footer>
+
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 pt-4">
+                <div class="col-md-6 d-flex align-items-center">
+                    <p>© 2024 CleanGo | All Rights Reserved</p>
+
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-end">
+                    <p class="">Doorstep Car Wash Service in Lahore</p>
+                </div>
+
+            </footer>
+        </div>
+    </section>
+
+
+
+    <!-- script ================================================== -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // Function to fill package details in the booking modal
+        function fillPackageDetails(packageName, price, details) {
+            document.getElementById('selectedPackage').value = packageName;
+            document.getElementById('packagePrice').value = price;
+            document.getElementById('packageDetails').value = details;
+        }
+
+        // Function for floating WhatsApp button (general inquiries)
+        function openWhatsAppChat() {
+            const whatsappNumber = "923018659791";
+            
+            const message = `🚗 *Hello CleanGo!*
+
+I'm interested in your car wash services. Please provide me with more information.
+
+Thank you!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Set minimum date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            // No need for date field anymore since it's in comments
+        });
+
+        // Handle form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const submitText = submitBtn.querySelector('.submit-text');
+            const spinner = submitBtn.querySelector('.spinner-border');
+            
+            // Show loading state
+            submitText.textContent = 'Sending...';
+            spinner.classList.remove('d-none');
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Create booking data object (not used for WhatsApp anymore, only for email)
+            const bookingData = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                day: formData.get('day'),
+                time: formData.get('time'),
+                comments: formData.get('comments'),
+                package: formData.get('package'),
+                price: formData.get('price'),
+                package_details: formData.get('package_details')
+            };
+            
+            // Send to Formspree (Email only)
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Success - Only email sent
+                    Swal.fire({
+                        title: '🎉 Booking Confirmed!',
+                        html: `
+                            <div style="text-align: left; margin: 20px 0;">
+                                <p><strong>📦 Package:</strong> ${bookingData.package}</p>
+                                <p><strong>💰 Price:</strong> ${bookingData.price}</p>
+                                <p><strong>📅 Day:</strong> ${bookingData.day}</p>
+                                <p><strong>🕐 Time:</strong> ${bookingData.time}</p>
+                                <hr style="margin: 15px 0;">
+                                <p style="color: #28a745;"><strong>✅ Email sent successfully!</strong></p>
+                                <p>We will contact you within <strong>2 hours</strong> to confirm your booking.</p>
+                            </div>
+                        `,
+                        icon: 'success',
+                        confirmButtonText: 'Great!',
+                        confirmButtonColor: '#28a745',
+                        timer: 8000,
+                        timerProgressBar: true,
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    });
+                    
+                    // Reset form and close modal
+                    this.reset();
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+                    modal.hide();
+                } else {
+                    // Error
+                    response.json().then(data => {
+                        if (data.errors) {
+                            Swal.fire({
+                                title: '❌ Booking Error',
+                                html: `
+                                    <p>There was an error with your booking:</p>
+                                    <p style="color: #dc3545; font-weight: bold;">${data.errors.map(error => error.message).join(', ')}</p>
+                                    <hr>
+                                    <p>Please try again or contact us directly:</p>
+                                    <p><strong>📞 0315-0030730</strong></p>
+                                `,
+                                icon: 'error',
+                                confirmButtonText: 'Try Again',
+                                confirmButtonColor: '#dc3545'
+                            });
+                        } else {
+                            Swal.fire({
+                                title: '⚠️ Something went wrong',
+                                html: `
+                                    <p>There was a problem sending your booking request.</p>
+                                    <p>Please try again or contact us directly:</p>
+                                    <p style="font-size: 18px; color: #007bff;"><strong>📞 0315-0030730</strong></p>
+                                `,
+                                icon: 'warning',
+                                confirmButtonText: 'Contact Us',
+                                confirmButtonColor: '#ffc107'
+                            });
+                        }
+                    });
+                }
+            }).catch(error => {
+                Swal.fire({
+                    title: '📱 Contact Us Directly',
+                    html: `
+                        <p>There was a connection problem.</p>
+                        <p>Please contact us directly to book your service:</p>
+                        <p style="font-size: 20px; color: #007bff; margin: 20px 0;"><strong>📞 0315-0030730</strong></p>
+                        <p>We're available to help you!</p>
+                    `,
+                    icon: 'info',
+                    confirmButtonText: 'Got it!',
+                    confirmButtonColor: '#007bff'
+                });
+            }).finally(() => {
+                // Reset button state
+                submitText.textContent = 'Book Now';
+                spinner.classList.add('d-none');
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
