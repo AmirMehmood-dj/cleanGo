@@ -103,7 +103,7 @@ h6,
     color: var(--heading-color);
     line-height: var(--heading-line-height);
     letter-spacing: 0.0725rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 h1,
