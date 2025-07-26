@@ -35,6 +35,280 @@
 
 <body data-bs-spy="scroll" data-bs-target="#header-nav" tabindex="0">
 
+    <!-- Eye-Catching Promotional Alert -->
+    <div id="promoAlert" class="promo-alert">
+        <div class="promo-content">
+            <div class="promo-icon">
+                <iconify-icon icon="mdi:gift" class="gift-icon"></iconify-icon>
+            </div>
+            <div class="promo-text">
+                <div class="promo-title">💎 LOYALTY REWARD!</div>
+                <div class="promo-description">Book Premium Package 4 Times & Get 5th Service <span class="highlight">FREE!</span></div>
+                <div class="promo-subtitle">Save Rs. 1800 • Limited Time Offer</div>
+            </div>
+            <div class="promo-actions">
+                <button class="promo-close" onclick="closePromoAlert()">
+                    <iconify-icon icon="mdi:close"></iconify-icon>
+                </button>
+            </div>
+        </div>
+        <div class="promo-progress"></div>
+    </div>
+
+    <style>
+        .promo-alert {
+            position: fixed;
+            top: 20px;
+            right: -420px;
+            width: 400px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.1);
+            z-index: 9999;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .promo-alert::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            z-index: -1;
+            margin: -2px;
+            border-radius: 20px;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .promo-alert.show {
+            right: 20px;
+            animation: alertSlideIn 0.8s ease-out;
+        }
+
+        .promo-alert.hide {
+            right: -420px;
+            opacity: 0;
+        }
+
+        @keyframes alertSlideIn {
+            0% { 
+                transform: translateX(100px) scale(0.9); 
+                opacity: 0; 
+                filter: blur(5px);
+            }
+            50% { 
+                transform: translateX(-15px) scale(1.02); 
+                filter: blur(2px);
+            }
+            100% { 
+                transform: translateX(0) scale(1); 
+                opacity: 1; 
+                filter: blur(0px);
+            }
+        }
+
+        .promo-content {
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            position: relative;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 18px;
+            margin: 2px;
+        }
+
+        .promo-icon {
+            margin-right: 18px;
+            animation: floatPulse 3s ease-in-out infinite;
+        }
+
+        .gift-icon {
+            font-size: 45px;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.3);
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+        }
+
+        @keyframes floatPulse {
+            0%, 100% { 
+                transform: translateY(0) scale(1);
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.3);
+            }
+            50% { 
+                transform: translateY(-8px) scale(1.1);
+                text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.5);
+            }
+        }
+
+        .promo-text {
+            flex: 1;
+            color: #ffffff;
+        }
+
+        .promo-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            0% { 
+                background-position: 0% 50%;
+                filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.3));
+            }
+            100% { 
+                background-position: 100% 50%;
+                filter: drop-shadow(0 0 12px rgba(78, 205, 196, 0.4));
+            }
+        }
+
+        .promo-description {
+            font-size: 15px;
+            margin-bottom: 6px;
+            line-height: 1.4;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .promo-subtitle {
+            font-size: 12px;
+            opacity: 0.8;
+            font-style: italic;
+            color: #cccccc;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            font-weight: 900;
+            text-shadow: none;
+            animation: rainbowShimmer 2s linear infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+        }
+
+        @keyframes rainbowShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .promo-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .promo-close {
+            background: rgba(45, 45, 45, 0.8);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .promo-close:hover {
+            background: rgba(220, 53, 69, 0.8);
+            transform: rotate(90deg) scale(1.1);
+            border-color: rgba(220, 53, 69, 0.5);
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.4);
+        }
+
+        .promo-progress {
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 300% 100%;
+            animation: progressFlow 4s linear infinite;
+            border-radius: 0 0 18px 18px;
+        }
+
+        @keyframes progressFlow {
+            0% { background-position: 300% 0; }
+            100% { background-position: -300% 0; }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .promo-alert {
+                width: calc(100vw - 40px);
+                right: -100vw;
+                top: 10px;
+            }
+            
+            .promo-alert.show {
+                right: 20px;
+            }
+            
+            .promo-alert.hide {
+                right: -100vw;
+            }
+            
+            .promo-content {
+                padding: 20px;
+            }
+            
+            .promo-title {
+                font-size: 16px;
+            }
+            
+            .promo-description {
+                font-size: 13px;
+            }
+            
+            .gift-icon {
+                font-size: 38px;
+            }
+        }
+
+        /* Alternative positions - you can change these classes */
+        .promo-left {
+            left: -420px;
+            right: auto;
+        }
+        
+        .promo-left.show {
+            left: 20px;
+            right: auto;
+        }
+        
+        .promo-bottom {
+            top: auto;
+            bottom: 20px;
+        }
+        
+        .promo-center {
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+            top: 50px;
+        }
+    </style>
 
     <nav class="navbar fixed-top navbar-expand-lg container-fluid p-4">
         <div class="container-fluid">
@@ -448,6 +722,8 @@
         </div>
     </section>
 
+
+
     <!-- New Lahore Areas Section -->
     <section id="lahore-areas" class="py-5" style="background-color: #f8f9fa;">
         <div style="overflow: hidden;">
@@ -709,7 +985,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <section id="footer">
         <div class="container footer-containerG mt-5 mt-md-0 pt-3">
@@ -791,6 +1067,32 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
+        // Promotional Alert Functions
+        function showPromoAlert() {
+            const promoAlert = document.getElementById('promoAlert');
+            promoAlert.classList.add('show');
+        }
+
+        function closePromoAlert() {
+            const promoAlert = document.getElementById('promoAlert');
+            promoAlert.classList.remove('show');
+            promoAlert.classList.add('hide');
+        }
+
+        // Show promotional alert after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show alert after 3 seconds
+            setTimeout(showPromoAlert, 3000);
+            
+            // Show alert again every 2 minutes if closed
+            setInterval(() => {
+                const promoAlert = document.getElementById('promoAlert');
+                if (!promoAlert.classList.contains('show')) {
+                    showPromoAlert();
+                }
+            }, 120000); // 2 minutes
+        });
+
         // Function to fill package details in the booking modal
         function fillPackageDetails(packageName, price, details) {
             document.getElementById('selectedPackage').value = packageName;
@@ -858,23 +1160,36 @@ Thank you!`;
             }).then(response => {
                 if (response.ok) {
                     // Success - Only email sent
+                    let successMessage = `
+                        <div style="text-align: left; margin: 20px 0;">
+                            <p><strong>📦 Package:</strong> ${bookingData.package}</p>
+                            <p><strong>💰 Price:</strong> ${bookingData.price}</p>
+                            <p><strong>📅 Day:</strong> ${bookingData.day}</p>
+                            <p><strong>🕐 Time:</strong> ${bookingData.time}</p>
+                            <hr style="margin: 15px 0;">
+                            <p style="color: #28a745;"><strong>✅ Email sent successfully!</strong></p>
+                            <p>We will contact you within <strong>2 hours</strong> to confirm your booking.</p>
+                        </div>
+                    `;
+                    
+                    // Add loyalty program message for Premium package
+                    if (bookingData.package === 'Premium Package') {
+                        successMessage += `
+                            <div style="background: linear-gradient(45deg, #667eea, #764ba2); padding: 15px; border-radius: 10px; color: white; margin: 15px 0;">
+                                <h6>🎉 LOYALTY PROGRAM REMINDER!</h6>
+                                <p style="margin: 5px 0; font-size: 14px;">Book Premium Package 4 times in a month & get your 5th service <strong>FREE!</strong></p>
+                                <p style="margin: 5px 0; font-size: 12px;">Save Rs. 1,800 on your 5th booking!</p>
+                            </div>
+                        `;
+                    }
+                    
                     Swal.fire({
                         title: '🎉 Booking Confirmed!',
-                        html: `
-                            <div style="text-align: left; margin: 20px 0;">
-                                <p><strong>📦 Package:</strong> ${bookingData.package}</p>
-                                <p><strong>💰 Price:</strong> ${bookingData.price}</p>
-                                <p><strong>📅 Day:</strong> ${bookingData.day}</p>
-                                <p><strong>🕐 Time:</strong> ${bookingData.time}</p>
-                                <hr style="margin: 15px 0;">
-                                <p style="color: #28a745;"><strong>✅ Email sent successfully!</strong></p>
-                                <p>We will contact you within <strong>2 hours</strong> to confirm your booking.</p>
-                            </div>
-                        `,
+                        html: successMessage,
                         icon: 'success',
                         confirmButtonText: 'Great!',
                         confirmButtonColor: '#28a745',
-                        timer: 8000,
+                        timer: 10000,
                         timerProgressBar: true,
                         showClass: {
                             popup: 'animate__animated animate__fadeInDown'
@@ -940,6 +1255,27 @@ Thank you!`;
                 submitBtn.disabled = false;
             });
         });
+
+        // Alternative positioning functions (you can call these to change alert position)
+        function moveAlertToLeft() {
+            const promoAlert = document.getElementById('promoAlert');
+            promoAlert.classList.add('promo-left');
+        }
+
+        function moveAlertToBottom() {
+            const promoAlert = document.getElementById('promoAlert');
+            promoAlert.classList.add('promo-bottom');
+        }
+
+        function moveAlertToCenter() {
+            const promoAlert = document.getElementById('promoAlert');
+            promoAlert.classList.add('promo-center');
+        }
+
+        // Example usage: Uncomment any of these to change position
+        // moveAlertToLeft();
+        // moveAlertToBottom();
+        // moveAlertToCenter();
     </script>
 
 
