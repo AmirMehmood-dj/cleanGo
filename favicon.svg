@@ -1,0 +1,51 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle with gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1F1F1F"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="carGrad" x1="16" y1="26" x2="48" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F6452D"/>
+      <stop offset="100%" stop-color="#d63820"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="32" cy="32" r="32" fill="url(#bgGrad)"/>
+
+  <!-- Car Body Main -->
+  <path d="M18 38 C18 38 20 30 24 28 L28 27 L36 27 L40 28 C44 30 46 38 46 38 L46 42 C46 43 45 44 44 44 L20 44 C19 44 18 43 18 42 Z" fill="url(#carGrad)"/>
+
+  <!-- Car Roof/Windows -->
+  <path d="M24 28 L26 28 L28 30 L28 34 L24 34 Z" fill="#FFFFFF" fill-opacity="0.25"/>
+  <path d="M40 28 L38 28 L36 30 L36 34 L40 34 Z" fill="#FFFFFF" fill-opacity="0.25"/>
+  <rect x="28" y="28" width="8" height="6" fill="#FFFFFF" fill-opacity="0.2"/>
+
+  <!-- Car Details -->
+  <rect x="28" y="38" width="8" height="2" rx="1" fill="#FFFFFF" fill-opacity="0.3"/>
+  <circle cx="22" cy="39" r="1" fill="#FFFFFF" fill-opacity="0.6"/>
+  <circle cx="42" cy="39" r="1" fill="#FFFFFF" fill-opacity="0.6"/>
+
+  <!-- Wheels -->
+  <circle cx="24" cy="45" r="4.5" fill="#0a0a0a"/>
+  <circle cx="24" cy="45" r="3" fill="#E4E4E4"/>
+  <circle cx="24" cy="45" r="1.5" fill="#1F1F1F"/>
+
+  <circle cx="40" cy="45" r="4.5" fill="#0a0a0a"/>
+  <circle cx="40" cy="45" r="3" fill="#E4E4E4"/>
+  <circle cx="40" cy="45" r="1.5" fill="#1F1F1F"/>
+
+  <!-- Water/Cleaning Drops -->
+  <path d="M28 18 C28 18 26 20 26 22 C26 24 27 25 28 25 C29 25 30 24 30 22 C30 20 28 18 28 18 Z" fill="#4FACFE"/>
+  <path d="M36 20 C36 20 34 22 34 24 C34 26 35 27 36 27 C37 27 38 26 38 24 C38 22 36 20 36 20 Z" fill="#4FACFE"/>
+  <path d="M44 22 C44 22 42 24 42 26 C42 28 43 29 44 29 C45 29 46 28 46 26 C46 24 44 22 44 22 Z" fill="#4FACFE"/>
+
+  <!-- Sparkle/Shine Effects -->
+  <circle cx="30" cy="32" r="1" fill="#FFFFFF" fill-opacity="0.9"/>
+  <circle cx="34" cy="30" r="0.8" fill="#FFFFFF" fill-opacity="0.8"/>
+  <path d="M38 32 L38.5 33 L39 32 L38.5 31 Z" fill="#FFFFFF" fill-opacity="0.9"/>
+
+  <!-- PakcleanGo Text Initial -->
+  <text x="32" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#F6452D">P</text>
+</svg>

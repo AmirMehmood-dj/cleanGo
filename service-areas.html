@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Areas in Lahore | PakcleanGo Doorstep Car Wash</title>
+    <meta name="description" content="PakcleanGo provides doorstep car wash service across all major areas of Lahore including DHA, Gulberg, Johar Town, Bahria Town, Model Town, and more. Check if we serve your area.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!--vendor css-->
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Style Sheet-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script src="js/modernizr.js"></script>
+
+    <style>
+        .navbar {
+            background: #1F1F1F !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .areas-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .areas-hero h1 {
+            font-family: 'Oswald', sans-serif;
+            color: #FFFFFF;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .areas-hero p {
+            color: #ABABAB;
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #F6452D;
+            border-radius: 0;
+        }
+
+        .search-box input:focus {
+            box-shadow: none;
+            border-color: #F6452D;
+        }
+
+        .areas-section {
+            padding: 80px 0;
+        }
+
+        .area-category {
+            margin-bottom: 60px;
+        }
+
+        .category-header {
+            background: #1F1F1F;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+        }
+
+        .category-header h2 {
+            font-family: 'Oswald', sans-serif;
+            color: #FFFFFF;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.075rem;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .location-card {
+            background: #FFFFFF;
+            border: 2px solid #E4E4E4;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .location-card:hover {
+            border-color: #F6452D;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(246, 69, 45, 0.1);
+        }
+
+        .location-card iconify-icon {
+            font-size: 48px;
+            color: #F6452D;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .location-card h3 {
+            font-family: 'Oswald', sans-serif;
+            color: #1F1F1F;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .location-card p {
+            color: #7D7D7D;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .location-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+        }
+
+        .location-list li {
+            color: #7D7D7D;
+            padding: 8px 0;
+            border-bottom: 1px solid #E4E4E4;
+            font-size: 15px;
+        }
+
+        .location-list li:last-child {
+            border-bottom: none;
+        }
+
+        .cta-banner {
+            background: #F6F6F6;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-banner h2 {
+            font-family: 'Oswald', sans-serif;
+            color: #1F1F1F;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            color: #7D7D7D;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            background: #FFFFFF;
+            border: 2px solid #F6452D;
+            padding: 20px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .contact-info iconify-icon {
+            color: #F6452D;
+            font-size: 24px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .contact-info a {
+            color: #1F1F1F;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: #F6452D;
+        }
+
+        @media (max-width: 768px) {
+            .areas-hero {
+                padding: 120px 0 80px;
+            }
+
+            .areas-hero h1 {
+                font-size: 36px;
+            }
+
+            .areas-hero p {
+                font-size: 16px;
+            }
+
+            .areas-section {
+                padding: 50px 0;
+            }
+
+            .category-header h2 {
+                font-size: 24px;
+            }
+
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-banner h2 {
+                font-size: 28px;
+            }
+
+            .contact-info a {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg container-fluid p-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html" style="color: white; font-weight: bold; font-size: 2rem;">Pakclean<span style="color: red;">Go</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <iconify-icon icon="system-uicons:menu-hamburger" class="hamburger-menu"></iconify-icon>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav align-items-center justify-content-end justify-content-xxl-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase mx-2 px-3 mb-2 mb-lg-0" href="index.html">home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase active mx-2 px-3 mb-2 mb-lg-0" href="service-areas.html">service areas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase mx-2 px-3 mb-2 mb-lg-0" href="testimonials.html">reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase mx-2 px-3 mb-2 mb-lg-0" href="faq.html">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase mx-2 px-3 mb-2 mb-lg-0" href="blog.html">blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-uppercase mx-2 px-3 mb-2 mb-lg-0" href="index.html#price">booking</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="areas-hero">
+        <div class="container">
+            <h1>We Serve All Lahore</h1>
+            <p>Professional doorstep car wash service available across all major areas of Lahore</p>
+            <div class="search-box">
+                <input type="text" class="form-control" id="areaSearch" placeholder="Search your area (e.g., DHA, Gulberg, Johar Town...)">
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas Section -->
+    <section class="areas-section">
+        <div class="container">
+
+            <!-- Central Lahore -->
+            <div class="area-category" data-category="central">
+                <div class="category-header">
+                    <h2><iconify-icon icon="mdi:city" style="vertical-align: middle; margin-right: 15px;"></iconify-icon> Central Lahore</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Mall Road</h3>
+                        <p>Historic commercial area</p>
+                        <ul class="location-list">
+                            <li>Anarkali</li>
+                            <li>The Mall</li>
+                            <li>Lakshmi Chowk</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Liberty Market</h3>
+                        <p>Shopping & commercial hub</p>
+                        <ul class="location-list">
+                            <li>Main Liberty</li>
+                            <li>Liberty Roundabout</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>GPO Area</h3>
+                        <p>Central postal district</p>
+                        <ul class="location-list">
+                            <li>Charing Cross</li>
+                            <li>GPO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gulberg & Garden -->
+            <div class="area-category" data-category="gulberg">
+                <div class="category-header">
+                    <h2><iconify-icon icon="mdi:office-building" style="vertical-align: middle; margin-right: 15px;"></iconify-icon> Gulberg & Garden Town</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Gulberg I, II, III</h3>
+                        <p>Prime residential area</p>
+                        <ul class="location-list">
+                            <li>Main Boulevard</li>
+                            <li>MM Alam Road</li>
+                            <li>C Block</li>
+                            <li>B Block</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Garden Town</h3>
+                        <p>Upscale neighborhood</p>
+                        <ul class="location-list">
+                            <li>Block A, B, C</li>
+                            <li>Barkat Market</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DHA -->
+            <div class="area-category" data-category="dha">
+                <div class="category-header">
+                    <h2><iconify-icon icon="mdi:shield-star" style="vertical-align: middle; margin-right: 15px;"></iconify-icon> DHA (Defence Housing Authority)</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>DHA Phase 1 - 4</h3>
+                        <p>Established residential sectors</p>
+                        <ul class="location-list">
+                            <li>Phase 1 (All Blocks)</li>
+                            <li>Phase 2 (All Blocks)</li>
+                            <li>Phase 3 (All Blocks)</li>
+                            <li>Phase 4 (All Blocks)</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>DHA Phase 5 - 8</h3>
+                        <p>Modern residential areas</p>
+                        <ul class="location-list">
+                            <li>Phase 5 (All Blocks)</li>
+                            <li>Phase 6 (All Blocks)</li>
+                            <li>Phase 7</li>
+                            <li>Phase 8</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Cavalry Ground</h3>
+                        <p>Premium DHA sector</p>
+                        <ul class="location-list">
+                            <li>Main Cavalry</li>
+                            <li>Cavalry Extension</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Askari Housing</h3>
+                        <p>Askari residential scheme</p>
+                        <ul class="location-list">
+                            <li>Askari 10</li>
+                            <li>Askari 11</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Model Town -->
+            <div class="area-category" data-category="modeltown">
+                <div class="category-header">
+                    <h2><iconify-icon icon="mdi:home-city" style="vertical-align: middle; margin-right: 15px;"></iconify-icon> Model Town & Surroundings</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Model Town</h3>
+                        <p>Planned residential area</p>
+                        <ul class="location-list">
+                            <li>Model Town Link Road</li>
+                            <li>Block A to Z</li>
+                            <li>Commercial Areas</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Faisal Town</h3>
+                        <p>Large residential scheme</p>
+                        <ul class="location-list">
+                            <li>Block A, B, C</li>
+                            <li>Main Boulevard</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Township</h3>
+                        <p>Residential locality</p>
+                        <ul class="location-list">
+                            <li>Sector A, B, C</li>
+                            <li>Main Market</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Johar Town -->
+            <div class="area-category" data-category="johartown">
+                <div class="category-header">
+                    <h2><iconify-icon icon="mdi:town-hall" style="vertical-align: middle; margin-right: 15px;"></iconify-icon> Johar Town & Nearby Areas</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Johar Town Phase 1</h3>
+                        <p>Established residential area</p>
+                        <ul class="location-list">
+                            <li>Block A to H</li>
+                            <li>Main Boulevard</li>
+                            <li>Commercial Markets</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Johar Town Phase 2</h3>
+                        <p>Developing residential sector</p>
+                        <ul class="location-list">
+                            <li>Block R1, R2, R3</li>
+                            <li>Block J1, J2, J3</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>PIA Housing Scheme</h3>
+                        <p>PIA residential society</p>
+                        <ul class="location-list">
+                            <li>Main PIA Road</li>
+                            <li>All Blocks</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Wapda Town</h3>
+                        <p>Planned housing scheme</p>
+                        <ul class="location-list">
+                            <li>Phase 1</li>
+                            <li>Phase 2</li>
+                            <li>Main Boulevard</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>EME Society</h3>
+                        <p>Premium residential area</p>
+                        <ul class="location-list">
+                            <li>Main EME</li>
+                            <li>All Blocks</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>UET Society</h3>
+                        <p>University housing scheme</p>
+                        <ul class="location-list">
+                            <li>Phase 1</li>
+                            <li>Phase 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valencia & Suburbs -->
+            <div class="area-category" data-category="valencia">
+                <div class="category-header">
+                    <h2><iconify-icon icon="mdi:city-variant" style="vertical-align: middle; margin-right: 15px;"></iconify-icon> Valencia Town & Suburban Areas</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Valencia Town</h3>
+                        <p>Growing residential scheme</p>
+                        <ul class="location-list">
+                            <li>Block A to J</li>
+                            <li>Main Boulevard</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Lake City</h3>
+                        <p>Modern housing project</p>
+                        <ul class="location-list">
+                            <li>Sector M1 to M7</li>
+                            <li>Main Lake City</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Bahria Town</h3>
+                        <p>Premium gated community</p>
+                        <ul class="location-list">
+                            <li>Sector A to F</li>
+                            <li>Jasmine Block</li>
+                            <li>Overseas Block</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Sukh Chayn Gardens</h3>
+                        <p>Residential locality</p>
+                        <ul class="location-list">
+                            <li>Main Sukh Chayn</li>
+                            <li>All Blocks</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Green Town</h3>
+                        <p>Residential area</p>
+                        <ul class="location-list">
+                            <li>Block A, B, C</li>
+                            <li>Main Market</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iqbal Town -->
+            <div class="area-category" data-category="iqbaltown">
+                <div class="category-header">
+                    <h2><iconify-icon icon="mdi:home-group" style="vertical-align: middle; margin-right: 15px;"></iconify-icon> Iqbal Town & Nearby</h2>
+                </div>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Iqbal Town</h3>
+                        <p>Large residential area</p>
+                        <ul class="location-list">
+                            <li>Block A to Z</li>
+                            <li>Main Boulevard</li>
+                            <li>Commercial Areas</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Samanabad</h3>
+                        <p>Populated locality</p>
+                        <ul class="location-list">
+                            <li>Main Samanabad</li>
+                            <li>All Blocks</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <iconify-icon icon="mdi:map-marker"></iconify-icon>
+                        <h3>Wahdat Colony</h3>
+                        <p>Residential colony</p>
+                        <ul class="location-list">
+                            <li>Main Wahdat Road</li>
+                            <li>All Areas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Don't See Your Area Listed?</h2>
+            <p>We're expanding every day! Call us to confirm service availability in your location.</p>
+            <div class="contact-info">
+                <iconify-icon icon="mdi:phone"></iconify-icon>
+                <a href="tel:03227614339">0322-7614339</a>
+            </div>
+            <div class="mt-4">
+                <a href="index.html#price" class="btn btn-primary btn-lg">Book Service Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container footer-containerG mt-5 mt-md-0 pt-3">
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 my-5 py-5">
+                <div class="col-md-3 my-5 mt-md-0">
+                    <h2 style="color: black; font-weight: bold; margin-bottom: 20px; font-size: 2.5rem;">Pakclean<span style="color: red;">Go</span></h2>
+                    <p class="my-4">PakcleanGo brings professional car washing services to your doorstep in Lahore.</p>
+                </div>
+
+                <div class="col-md-4 offset-md-1">
+                    <h5 class="fs-5 mt-3 mt-md-0 mb-3">Quick Links</h5>
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item footer-list mb-3"><a href="index.html" class="nav-link text-uppercase p-0">Home</a></li>
+                        <li class="nav-item footer-list mb-3"><a href="service-areas.html" class="nav-link text-uppercase p-0">Service Areas</a></li>
+                        <li class="nav-item footer-list mb-3"><a href="faq.html" class="nav-link text-uppercase p-0">FAQ</a></li>
+                        <li class="nav-item footer-list mb-3"><a href="blog.html" class="nav-link text-uppercase p-0">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="fs-5 mt-3 mt-md-0 mb-3">Contact</h5>
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item footer-list mb-3"><p class="p-0">0322-7614339</p></li>
+                        <li class="nav-item footer-list mb-3"><p class="p-0">All Areas of Lahore</p></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 pt-4 border-top">
+                <div class="col-md-6 d-flex align-items-center">
+                    <p>© 2024 PakcleanGo | All Rights Reserved</p>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-end">
+                    <p>Doorstep Car Wash Service in Lahore</p>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+
+    <script>
+        // Search functionality
+        document.getElementById('areaSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.location-card');
+            const categories = document.querySelectorAll('.area-category');
+
+            if (searchTerm === '') {
+                // Show all
+                categories.forEach(cat => cat.style.display = 'block');
+                cards.forEach(card => card.style.display = 'block');
+                return;
+            }
+
+            // Hide all first
+            categories.forEach(cat => cat.style.display = 'none');
+            cards.forEach(card => card.style.display = 'none');
+
+            // Show matching cards
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.closest('.area-category').style.display = 'block';
+                }
+            });
+        });
+    </script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923227614339?text=Hi%2C%20I%20want%20to%20book%20a%20car%20wash%20service" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <iconify-icon icon="mdi:whatsapp" class="whatsapp-icon"></iconify-icon>
+        <span class="whatsapp-text">Book Now</span>
+    </a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: #FFFFFF;
+            border-radius: 50px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 9998;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+            color: #FFFFFF;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-icon {
+            font-size: 28px;
+            animation: whatsappPulse 2s infinite;
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .whatsapp-text {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .whatsapp-icon {
+                font-size: 24px;
+            }
+
+            .whatsapp-text {
+                display: none;
+            }
+
+            .whatsapp-float {
+                border-radius: 50%;
+                padding: 15px;
+            }
+        }
+    </style>
+
+</body>
+
+</html>
